@@ -4,6 +4,8 @@ import { envro } from "src/environment";
 import { CreateCourseRequest } from "../model/request/create-course.request";
 import { GeneralResponse } from "src/app/Core/model/general.response";
 import { CourseModel } from "src/app/Core/model/course.model";
+import { StudentModule } from "../../student/student.module";
+import { StudentModel } from "src/app/Core/model/Student.model";
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +17,7 @@ export class CourseService {
 
     postCreateCourse:string = `${envro.localhost}api/course`;
     getCourse:string = `${envro.localhost}api/Course/GetCourse/`
+    getAttendedStudentsForCourse :string = `${envro.localhost}api/Attendance/GetAttendedStudents/`
 
     constructor(private http:HttpClient){}
 
@@ -28,5 +31,10 @@ export class CourseService {
     GetCourse(courseId:string)
     {
         return this.http.get<GeneralResponse<CourseModel>>(this.getCourse+courseId)
+    }
+
+    GetAttendedStudentsForCourse(id:string)
+    {
+        return this.http.get<GeneralResponse<StudentModel[]>>(this.getAttendedStudentsForCourse+id)
     }
 }

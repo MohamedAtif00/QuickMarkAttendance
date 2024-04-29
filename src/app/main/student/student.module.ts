@@ -7,10 +7,12 @@ import { StudentRoutingModule } from './student-routing/student-routing.module';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ScannerPageComponent } from './scanner-page/scanner-page.component';
-import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { LOAD_WASM, NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 import { SafePipe } from './scanner-page/safe.pipe';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
+// Necessary to solve the problem of losing internet connection
+LOAD_WASM().subscribe()
 
 
 @NgModule({

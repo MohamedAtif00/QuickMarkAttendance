@@ -4,6 +4,8 @@ import { CourseService } from '../service/course.service';
 import { DoctorService } from '../service/doctor.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import{YouTubePlayer} from '@angular/youtube-player'
+import { StudentModule } from '../../student/student.module';
+import { StudentModel } from 'src/app/Core/model/Student.model';
 
 @Component({
   selector: 'app-course-view',
@@ -23,6 +25,8 @@ export class CourseViewComponent implements OnInit{
   name!:string;
   safUrl:any;
 
+  students!:StudentModel[];
+
   constructor(private route:ActivatedRoute,private courseServ:CourseService,private doctorServ:DoctorService){}
 
   ngOnInit(): void {
@@ -38,10 +42,26 @@ export class CourseViewComponent implements OnInit{
           
   
         if(data.value)
-        this.doctorServ.GetSingleDoctor(data.value.doctorId.value).subscribe(data=>{
-          if(data.value)
-          this.name = data.value.name 
-      })
+        {
+          this.doctorServ.GetSingleDoctor(data.value.doctorId.value).subscribe(data=>{
+
+            if(data.value)
+            this.name = data.value.name 
+
+            this.courseServ.GetAttendedStudentsForCourse(this.course.id.value).subscribe(data=>{
+              if(data.value)
+              this.students = data.value;
+
+              console.log(this.students);
+              
+            })
+
+          })
+
+
+
+        }
+
       })
   }
 

@@ -2,6 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import * as AOS from 'aos';
 
 import { AppModule } from './app/app.module';
+import { Html5QrcodeScanner } from 'html5-qrcode/esm/html5-qrcode-scanner';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule)
@@ -135,3 +136,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     //window.addEventListener('load', initSwiper);
   
   })();
+
+ 
+  

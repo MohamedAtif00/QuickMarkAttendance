@@ -16,6 +16,7 @@ export class StudentService{
     getAllDoctors:string = `${envro.localhost}api/Doctor`
     getAllCoursesForDoctor:string = `${envro.localhost}api/Course/GetCoursesForDoctor/`
     getCourse:string = `${envro.localhost}api/Course/GetCourse/`
+    postAttendStudent:string = `${envro.localhost}api/Attendance/AddAttendance`
 
     constructor(private http:HttpClient){}
 
@@ -34,4 +35,8 @@ export class StudentService{
         return this.http.get<GeneralResponse<CourseModel>>(this.getCourse+id);
     }
 
+    AttendStudent(courseId:string,studentId:string)
+    {   
+         return this.http.post<GeneralResponse<boolean>>(this.postAttendStudent,{courseId,studentId})
+    }
 }

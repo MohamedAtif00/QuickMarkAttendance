@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from '../service/student.service';
 import { CourseModel } from 'src/app/Core/model/course.model';
 import { CourseService } from '../../doctor/service/course.service';
 import { DoctorService } from '../../doctor/service/doctor.service';
+import { AuthService } from 'src/app/authentication/service/auth.service';
 
 @Component({
   selector: 'app-course-view',
@@ -22,7 +23,7 @@ export class CourseViewComponent implements OnInit{
   name!:string;
   safUrl:any;
 
-  constructor(private route:ActivatedRoute,private courseServ:CourseService,private doctorServ:DoctorService){}
+  constructor(private router:Router,private route:ActivatedRoute,private courseServ:CourseService,private doctorServ:DoctorService,private studentServ:StudentService,private authServ:AuthService){}
 
   ngOnInit(): void {
     let tagscript = document.createElement('script'); 
@@ -42,6 +43,17 @@ export class CourseViewComponent implements OnInit{
           this.name = data.value.name 
       })
       })
+  }
+
+
+  Attend()
+  {
+      this.studentServ.AttendStudent(this.course.id.value,this.authServ.user.id).subscribe(data=>{
+        console.log(data);
+
+       
+        
+      });
   }
 
 }
