@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{ course.name }}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">Instructor: {{ name }}  </h6>
+       
+      </div>
+    </div>
+    <div class="mt-4 w-100 h-100 ">
+        <youtube-player [videoId]="course.link" [width]="1300" [height]="700"></youtube-player>
+    </div>
+    <p class="card-text">{{ course.description }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta sapiente numquam adipisci tempore inventore recusandae provident assumenda? Repellendus totam temporibus laboriosam expedita, assumenda distinctio, optio veritatis pariatur, ut autem saepe.</p>
+  </div>
+
+  <!-- <qrcode [qrdata]="course.id.value" [width]="400" class="text-center " [allowEmptyString]="true"></qrcode> -->
+
+  

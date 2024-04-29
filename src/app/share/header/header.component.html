@@ -9,8 +9,9 @@
       
             <nav id="navmenu" class="navmenu">
               <ul>
-                  <li><a [routerLink]="['donation']" class="">Add Course</a></li>
+                  <li><a [routerLink]="['main','doctor']" class="" *ngIf="authServ.user && authServ.user.role == 'Doctor'">Add Course</a></li>
                 <li><a href="index.html" class="">Home</a></li>
+                <li><a [routerLink]="" class="">scan</a></li>
                 
               </ul>
               <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -18,7 +19,7 @@
 
         </div>
         <div class="">
-            <a class="btn-getstarted" [routerLink]="['material-list']">Get Started</a>
+            <a class="btn-getstarted" [routerLink]="['main','student']">Get Started</a>
             <a class="btn btn-success rounded-5  p-2 px-4" style="margin-left: 10px;" [routerLink]="['auth']" *ngIf="!authServ.token || !authServ.GetToken()">Log in</a>
             <a class="btn btn-success rounded-5  p-2 px-4" style="margin-left: 10px;" (click)="Logout()"  *ngIf="authServ.token || authServ.GetToken()">Log out</a>
 

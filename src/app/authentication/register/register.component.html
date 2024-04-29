@@ -6,7 +6,7 @@
           <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
             <div class="d-flex justify-content-center py-4">
-                <span class="d-none d-lg-block fs-1 " style="color: blue;cursor: pointer;" [routerLink]="['']">Zaker</span>
+                <span class="d-none d-lg-block fs-1 " style="color: blue;cursor: pointer;" [routerLink]="['']">QuickMark</span>
             </div><!-- End Logo -->
 
             <div class="card mb-3">
@@ -30,7 +30,7 @@
                   <div class="col-12">
                     <label for="yourUsername" class="form-label">Username</label>
                     <div class="input-group has-validation">
-                      <span class="input-group-text" id="inputGroupPrepend">@</span>
+                      <span class="input-group-text" id="inputGroupPrepend">username</span>
                       <input type="text" formControlName="username" name="username" class="form-control" id="yourUsername" required>
                       <div class="invalid-feedback">Please choose a username.</div>
                     </div>
@@ -42,18 +42,11 @@
                     <div class="invalid-feedback">Please enter your password!</div>
                   </div>
 
-                  <!-- <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                      <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                      <div class="invalid-feedback">You must agree before submitting.</div>
-                    </div>
-                  </div> -->
                   <div class="col-12">
                     <button class="btn btn-primary w-100" type="submit" >Create Account</button>
                   </div>
                   <div class="col-12">
-                    <p class="small mb-0">Already have an account? <a [routerLink]="['/auth','login']">Log in</a></p>
+                    <p class="small mb-0">Already have an account? <a [routerLink]="['/auth']">Log in</a></p>
                   </div>
                 </form>
 
@@ -61,11 +54,7 @@
             </div>
 
             <div class="credits">
-              <!-- All the links in the footer should remain intact. -->
-              <!-- You can delete the links only if you purchased the pro version. -->
-              <!-- Licensing information: https://bootstrapmade.com/license/ -->
-              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-              Make Registration as <a [routerLink]="['/auth','donor-register']">Donor</a>
+              Make Registration as <a [routerLink]="['/auth','doctor-register']">Doctor</a>
             </div>
 
           </div>
